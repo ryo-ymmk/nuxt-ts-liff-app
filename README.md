@@ -25,5 +25,6 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 ```bash
 $ cd cert
+$ npx mkcert create-ca
 $ npx mkcert create-cert
 ```

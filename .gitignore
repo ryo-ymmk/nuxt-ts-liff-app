@@ -88,5 +88,4 @@ sw.*
 
 # Vim swap files
 *.swp
-ca.key
-ca.crt
+cert/
