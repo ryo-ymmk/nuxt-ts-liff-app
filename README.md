@@ -18,3 +18,12 @@ $ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+# その他色々
+サーバー証明書は自前。
+下記コマンドで証明を作る。
+
+```bash
+$ cd cert
+$ npx mkcert create-cert
+```
