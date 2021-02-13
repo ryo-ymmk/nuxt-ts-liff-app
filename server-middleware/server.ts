@@ -3,6 +3,8 @@ import axios from 'axios'
 
 const app = express()
 
+// https://developers.line.biz/ja/docs/liff/using-user-profile
+// これに準じて、サーバー側でプロフィールを取得する場合はTokenだけを信用する
 app.get('/', async (req, res) => {
   const token = req.query.token
 
