@@ -1,3 +1,6 @@
+import fs from 'fs'
+import path from 'path'
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: false,
@@ -42,4 +45,23 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  // 鯖設定 デプって試す時は丸っと変える
+  server: {
+    port: 3001,
+    host: 'localhost',
+    https:
+      process.env.NODE_ENV === 'production'
+        ? {}
+        : {
+            // test時はこっちの設定読む
+            key: fs.readFileSync(path.resolve(__dirname, 'cert/cert.key')),
+            cert: fs.readFileSync(path.resolve(__dirname, 'cert/cert.crt')),
+          },
+  },
+
+  // api endpointを作る
+  serverMiddleware: [
+    { path: '/api', handler: '~/server-middleware/server.ts' },
+  ],
 }
