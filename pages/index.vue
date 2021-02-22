@@ -13,6 +13,9 @@
       <p>
         {{ errorMessage }}
       </p>
+      <p>
+        {{ display }}
+      </p>
     </div>
     <div class="control">
       <button @click="onApiTest">押すと、死ぬ。</button>
@@ -31,13 +34,14 @@ export default Vue.extend({
       errorMessage: undefined,
       errorCode: undefined,
       accessToken: 'ないよ',
+      display: undefined,
     }
   },
 
   async mounted() {
     // init処理はLiff/標準ブラウザ問わず実行、失敗したら何もかも終わり
     const err = await liff
-      .init({ liffId: '1655655645-N7MQOMQj' })
+      .init({ liffId: process.env.liffId! })
       .catch((err) => err)
     if (err) {
       this.errorMessage = err.message
@@ -67,7 +71,8 @@ export default Vue.extend({
         })
         .catch((err) => err)
       if (res) {
-        console.log(res)
+        // @ts-ignore
+        this.display = res.userId + `:${res.displayName}`
       }
     },
   },
