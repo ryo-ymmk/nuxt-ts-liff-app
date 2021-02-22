@@ -40,4 +40,7 @@ nuxt.config.jsの一番上に設定一式するSettings変数があるので、�
 設定したLIFFアプリのLIFF IDとPortを合わせる。
 
 試してないけど多分Herokuならデプロイかけても動く。
+<<<<<<< HEAD
 その場合は環境変数**API_URL_BROWSER**にデプロイ後のホストURLを設定する必要がある。
+=======
+>>>>>>> aeeee80479cad1934207721dff1a988b6c14555c
